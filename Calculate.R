@@ -1,6 +1,7 @@
 library(rgrass7)
 
 ## Raszter beolvasás
+## IDW beolvasás
 PisztrSurf <- readRAST("surfvec1m2")
 
 ## Mátrixra konvertált
@@ -9,6 +10,11 @@ min(PisztrSurf.mat)
 max(PisztrSurf.mat)
 
 vol.df <- VolCal(PisztrSurf.mat, levels=seq(340.5, 344.5, by = 0.1))
+
+## IDW
+idwvol.df <- vol.df
+
+## Plot
 
 korona <- 344.5
 arapaszto <- 342.25
