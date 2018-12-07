@@ -26,3 +26,6 @@ text(15000, arapaszto, paste("Árapasztó (", arapaszto, " m)"), adj=c(0,1.2))
 lines(level ~ volume, vol.df[vol.df$level <= 343.5,], lwd = 2)
 ## A görbe 1 m biztonság felett
 lines(level ~ volume, vol.df[vol.df$level >= 343.5,], lwd = 2, lty = "dotted")
+
+## ggplot2 kezdemény
+ggplot(vol.df, aes(volume, level)) + geom_line() + geom_point() + theme_bw()
