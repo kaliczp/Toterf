@@ -38,6 +38,9 @@ lines(level ~ volume, vol.df[vol.df$level >= 343.5,], lwd = 2, lty = "dotted")
 ## IDW line compare
 lines(level ~ volume, idwvol.df, col=2)
 
+## Data export
+vol.df[,2] <- round(vol.df[,2])
+write.table(vol.df, "PisztrangosTerf.csv", sep=";", dec = ",", row.names=FALSE)
 
 ## ggplot2 kezdemény
 ggplot(vol.df, aes(volume, level)) + geom_line() + geom_point() + theme_bw()
