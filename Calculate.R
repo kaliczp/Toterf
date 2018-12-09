@@ -44,3 +44,9 @@ write.table(vol.df, "PisztrangosTerf.csv", sep=";", dec = ",", row.names=FALSE)
 
 ## ggplot2 kezdemény
 ggplot(vol.df, aes(volume, level)) + geom_line() + geom_point() + theme_bw()
+
+## Függvény
+vol.para <- lm(volume ~ I(level^2) + level, vol.df)
+points(predict(vol.para), vol.df$level, col=2)
+vol.poly <- lm(volume ~ poly(level,4), vol.df)
+points(predict(vol.poly), vol.df$level, col=4)
