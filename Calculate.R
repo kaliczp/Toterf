@@ -15,7 +15,7 @@ vol.df <- VolCal(PisztrSurf.mat, levels=seq(339, 344.5, by = 0.1))
 vol.df[,2] <- round(vol.df[,2])
 write.table(vol.df, "PisztrangosTerf.csv", sep=";", dec = ",", row.names=FALSE)
 ## Ha kell beolvasás
-## read.csv2("PisztrangosTerf.csv")
+## vol.df <- read.csv2("PisztrangosTerf.csv")
 
 ## IDW
 # idwvol.df <- vol.df
@@ -59,3 +59,6 @@ points(predict(vol.poly), vol.df$level, col=4)
 mean(c(tan(35*pi/180)*4.9,
 tan(31.4*pi/180)*5.04,
 tan(34.8*pi/180)*4.5))
+
+## Térfogat
+vol.df[vol.df$level == 343.5, "volume"] - vol.df[vol.df$level == 341.3, "volume"]
