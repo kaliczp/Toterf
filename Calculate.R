@@ -19,7 +19,7 @@ write.table(vol.df, "PisztrangosTerf.csv", sep=";", dec = ",", row.names=FALSE)
 
 ## Plot
 korona <- 344.5
-arapaszto <- 342.25
+arapaszto <- 341.3
 plot(level ~ volume, vol.df, typ="n",
      xlab = "Tározó térfogat [m^3]",
      ylab = "Vízállás [m B. f.]")
@@ -50,3 +50,9 @@ vol.para <- lm(volume ~ I(level^2) + level, vol.df)
 points(predict(vol.para), vol.df$level, col=2)
 vol.poly <- lm(volume ~ poly(level,4), vol.df)
 points(predict(vol.poly), vol.df$level, col=4)
+
+## Térfogat Vízszint és a gát teteje alatt 1m
+## Gátkorona -- víz 3.2 m
+mean(c(tan(35*pi/180)*4.9,
+tan(31.4*pi/180)*5.04,
+tan(34.8*pi/180)*4.5))
