@@ -22,7 +22,7 @@ write.table(vol.df, "PisztrangosTerf.csv", sep=";", dec = ",", row.names=FALSE)
 korona <- 344.5
 arapaszto <- 341.3
 plot(level ~ volume, vol.df, typ="n",
-     xlab = "Tározó térfogat [m^3]",
+     xlab = expression("Tározó térfogat [ "* m^3 * " ]"),
      ylab = "Vízállás [m B. f.]")
 grid()
 ## Gátkorona
