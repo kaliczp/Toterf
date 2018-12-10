@@ -4,13 +4,14 @@ library(rgrass7)
 ## IDW beolvasás
 PisztrSurf <- readRAST("surfvec1m2")
 PisztrSurf <- readRAST("rstsurf")
+PisztrSurf <- readRAST("rstsurfnew")
 
 ## Mátrixra konvertált
 PisztrSurf.mat <- as.matrix(PisztrSurf)
 min(PisztrSurf.mat)
 max(PisztrSurf.mat)
 
-vol.df <- VolCal(PisztrSurf.mat, levels=seq(340.5, 344.5, by = 0.1))
+vol.df <- VolCal(PisztrSurf.mat, levels=seq(339, 344.5, by = 0.1))
 vol.df[,2] <- round(vol.df[,2])
 write.table(vol.df, "PisztrangosTerf.csv", sep=";", dec = ",", row.names=FALSE)
 
