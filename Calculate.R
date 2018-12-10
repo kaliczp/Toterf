@@ -14,6 +14,8 @@ max(PisztrSurf.mat)
 vol.df <- VolCal(PisztrSurf.mat, levels=seq(339, 344.5, by = 0.1))
 vol.df[,2] <- round(vol.df[,2])
 write.table(vol.df, "PisztrangosTerf.csv", sep=";", dec = ",", row.names=FALSE)
+## Ha kell beolvasás
+## read.csv2("PisztrangosTerf.csv")
 
 ## IDW
 # idwvol.df <- vol.df
