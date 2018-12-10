@@ -20,6 +20,9 @@ write.table(vol.df, "PisztrangosTerf.csv", sep=";", dec = ",", row.names=FALSE)
 ## IDW
 # idwvol.df <- vol.df
 
+##
+png("PisztrVol.png", width=4*480, height=2*480, res=2*72)
+
 ## Plot
 korona <- 344.5
 arapaszto <- 341.3
@@ -37,6 +40,8 @@ text(15000, arapaszto, paste("Árapasztó (", arapaszto, " m)"), adj=c(0,1.2))
 lines(level ~ volume, vol.df[vol.df$level <= 343.5,], lwd = 2)
 ## A görbe 1 m biztonság felett
 lines(level ~ volume, vol.df[vol.df$level >= 343.5,], lwd = 2, lty = "dotted")
+
+dev.off()
 
 ## IDW line compare
 lines(level ~ volume, idwvol.df, col=2)
