@@ -63,7 +63,14 @@ vol.df[,2] <- round(vol.df[,2])
 write.table(vol.df, "PisztrangosTerf.csv", sep=";", dec = ",", row.names=FALSE)
 
 ## ggplot2 kezdemény
+library(ggplot2)
 ggplot(vol.df, aes(volume, level)) + geom_line() + geom_point() + theme_bw()
+
+ggplot(vol.df, aes(y = level)) +
+    geom_line(aes(x = volume)) +
+    geom_line(aes(x = surface), col="red") +
+#    theme_bw() +
+    ylab("Vízállás [m]")
 
 ## Függvény
 vol.para <- lm(volume ~ I(level^2) + level, vol.df)
